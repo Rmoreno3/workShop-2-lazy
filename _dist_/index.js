@@ -16,9 +16,10 @@ const createImageNode = () => {
   const image = document.createElement('img');
   image.className = 'mx-auto';
   image.width = '320';
-  image.src = `${URL}/images/${random(1,122)}.jpg`;
+  image.dataset.src = `${URL}/images/${random(1,122)}.jpg`;
 
   imageContainer.append(image);
+  console.log(`Total imagenes`)
 
   return imageContainer;
 }
@@ -29,5 +30,16 @@ const addImage = () => {
   registerImage(newImage);
 }
 
+const deleteImage = () => {
+  const listNodo = [...app.childNodes];
+
+  listNodo.forEach((child) => {
+    child.remove();
+  })
+}
+
 const addButton = document.querySelector('#addImage');
 addButton.addEventListener('click', addImage);
+
+const deleteButton = document.querySelector('#deleteImage');
+deleteButton.addEventListener('click', deleteImage);
