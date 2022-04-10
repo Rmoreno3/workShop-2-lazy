@@ -1,3 +1,5 @@
+import { registerImage } from "./lazy";
+
 const URL = "https://randomfox.ca";
 const app = document.querySelector('#images');
 
@@ -24,6 +26,7 @@ const createImageNode = () => {
 const addImage = () => {
   const newImage = createImageNode();
   app.appendChild(newImage);
+  registerImage(newImage);
 }
 
 const addButton = document.querySelector('#addImage');
